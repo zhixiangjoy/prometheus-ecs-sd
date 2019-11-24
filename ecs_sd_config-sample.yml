@@ -1,0 +1,14 @@
+ecs_sd_config:
+  region: cn-beijing
+  access_key: xxx # ALIYUN_ACCESS_KEY_ID
+  secret_key: xxx # ALIYUN_SECRET_ACCESS_KEY
+
+  refresh_interval: 30s
+  port: 4909
+
+  filters:
+    - name: Tag
+      value: >-
+        groupId:xxx
+
+
