@@ -1,21 +1,22 @@
 package config
 
 import (
-	"github.com/pkg/errors"
-	"github.com/prometheus/common/model"
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"os"
 	"time"
+
+	"github.com/pkg/errors"
+	"github.com/prometheus/common/model"
+	"gopkg.in/yaml.v2"
 )
 
 type SDConfig struct {
-	Region 			string `yaml:"region"`
-	AccessKey 		string `yaml:"access_key,omitempty"`
-	SecretKey 		string `yaml:"secret_key,omitempty"`
+	Region          string         `yaml:"region"`
+	AccessKey       string         `yaml:"access_key,omitempty"`
+	SecretKey       string         `yaml:"secret_key,omitempty"`
 	RefreshInterval model.Duration `yaml:"refresh_interval,omitempty"`
-	Port            int `yaml:"port"`
-	Filters         []*Filter `yaml:"filters,omitempty"`
+	Port            int            `yaml:"port"`
+	Filters         []*Filter      `yaml:"filters,omitempty"`
 }
 
 // DefaultSDConfig is the default EC2 SD configuration.
@@ -23,9 +24,10 @@ var DefaultSDConfig = SDConfig{
 	Port:            80,
 	RefreshInterval: model.Duration(60 * time.Second),
 }
+
 // Filter is the configuration for filtering EC2 instances.
 type Filter struct {
-	Name  string   `yaml:"name"`
+	Name  string `yaml:"name"`
 	Value string `yaml:"value"`
 }
 
